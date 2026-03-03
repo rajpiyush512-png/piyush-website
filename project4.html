@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mouse Follow Animation</title>
+
+<style>
+body {
+    margin: 0;
+    background: radial-gradient(circle at center, #0f2027, #203a43, #2c5364);
+    overflow: hidden;
+    cursor: none;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.animate {
+    width: 180px;
+    height: 180px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+    transform-origin: center;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+
+    background: linear-gradient(45deg, #ff0080, #7928ca, #00f2fe);
+    background-size: 400% 400%;
+    filter: drop-shadow(0 0 25px rgba(255,255,255,0.8));
+
+    animation:
+        spin 3s  infinite,
+        gradientMove 1s ease infinite,
+        pulse 2s ease-in-out infinite;
+}
+
+/* Rotating star */
+@keyframes spin {
+   0% {
+        transform: rotate(0deg) translateX(300px);
+        background: blue; 
+    }
+    15% {
+        background: rgb(255, 61, 84);;
+    }
+    25% {
+        background: purple; ;
+    }
+    35% {
+        background: cyan;
+    }
+    45% {
+        background: rgb(255, 255, 76);
+    }
+    50% {
+        background: orange;
+    }
+    65% {
+        background: rgb(255, 82, 203);
+    }
+    75% {
+        background: lime;
+    }
+    85% {
+        background: pink;
+    }
+    95% {
+        background: rgb(25, 64, 143);
+    }
+    100% {
+        transform: rotate(360deg) translateX(300px);
+        background: red;
+    }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="container">
+    <div class="animate" id="star"></div>
+</div>
+
+
+</body>
+</html>
